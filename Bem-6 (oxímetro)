@@ -1,0 +1,78 @@
+#include <Wire.h>
+#include "MAX30100_PulseOximeter.h"
+#include <LiquidCrystal_I2C.h>
+
+// Configurações do sensor MAX30100
+PulseOximeter pox;
+#define REPORTING_PERIOD_MS 1000
+
+// Configurações do LCD I2C
+LiquidCrystal_I2C lcd(0x27, 16, 2); // Endereço 0x27, display 16x2
+
+// Variáveis para controle de tempo
+uint32_t tsLastReport = 0;
+
+void setup() {
+  // Inicializar comunicação serial
+  Serial.begin(9600);
+  
+  // Inicializar LCD
+  lcd.init();
+  lcd.backlight();
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Inicializando...");
+  
+  // Inicializar sensor MAX30100
+  if (!pox.begin()) {
+    Serial.println("Falha ao inicializar sensor MAX30100");
+    lcd.clear();
+    lcd.print("Erro no sensor!");
+    while(1);
+  } else {
+    Serial.println("Sensor MAX30100 inicializado");
+  }
+  
+  // Configurar sensor
+  pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
+  
+  // Mensagem de boas-vindas no LCD
+  delay(2000);
+  lcd.clear();
+  lcd.print("Sensor Ativo");
+  lcd.setCursor(0, 1);
+  lcd.print("Aguardando dados");
+}
+
+void loop() {
+  // Atualizar leitura do sensor
+  pox.update();
+  
+  // Verificar se é hora de reportar os dados
+  if (millis() - tsLastReport > REPORTING_PERIOD_MS) {
+    tsLastReport = millis();
+    
+    // Ler dados do sensor MAX30100
+    float heartRate = pox.getHeartRate();
+    float spO2 = pox.getSpO2();
+    
+    // Exibir dados no Serial Monitor
+    Serial.print("Batimentos cardiacos: ");
+    Serial.print(heartRate);
+    Serial.print(" bpm / SpO2: ");
+    Serial.print(spO2);
+    Serial.println("%");
+    
+    // Exibir dados no LCD
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("BPM: ");
+    lcd.print(heartRate, 0); // 0 casas decimais
+    lcd.print(" bpm");
+    
+    lcd.setCursor(0, 1);
+    lcd.print("SpO2: ");
+    lcd.print(spO2, 1); // 1 casa decimal
+    lcd.print("%");
+  }
+}
