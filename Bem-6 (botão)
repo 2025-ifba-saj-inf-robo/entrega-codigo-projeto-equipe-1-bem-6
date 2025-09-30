@@ -1,0 +1,26 @@
+int BOTAO = 3; // Botão conectado ao pino 3
+int VAR = 0;
+int VAR2 = 0;
+
+void setup() {
+  Serial.begin(9600);         // Inicia a comunicação serial
+  pinMode(BOTAO, INPUT);      // Define o pino do botão como entrada
+}
+
+void loop() {
+  VAR = digitalRead(BOTAO);   // Lê o estado atual do botão
+
+  // Quando o botão é pressionado (borda de subida)
+  if (VAR == 1 && VAR2 == 0) {
+    Serial.println("enviar localizacao");
+    delay(20); // debounce
+  }
+
+  // Quando o botão está solto (não pressionado)
+  if (VAR == 0 && VAR2 == 0) {
+    Serial.println("HIGH");
+    delay(500); // delay para evitar spam no monitor serial
+  }
+
+  VAR2 = VAR; // Atualiza o estado anterior
+}
