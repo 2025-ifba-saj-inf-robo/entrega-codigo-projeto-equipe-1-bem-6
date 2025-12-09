@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem6 - Relógio Inteligente de Segurança para Mulheres</title>
+    <link rel="stylesheet" href="./Bem6 - Relógio Inteligente de Segurança para Mulheres_files/all.min.css">
+    <link href="./Bem6 - Relógio Inteligente de Segurança para Mulheres_files/css2" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #74327A;
+            --primary: #C1368C;
+            --primary-light: #CC4598;
+            --secondary: #EA99C2;
+            --accent: #FF6B9D;
+            --dark: #2A1A3D;
+            --light: #F8F5FA;
+            --success: #2ECC71;
+            --warning: #F39C12;
+            --danger: #E74C3C;
+            --info: #3498DB;
+            --gray-100: #F5F5F5;
+            --gray-200: #EEEEEE;
+            --gray-300: #E0E0E0;
+            --gray-600: #757575;
+            --gray-800: #424242;
+            --shadow: 0 10px 30px rgba(116, 50, 122, 0.1);
+            --shadow-lg: 0 20px 50px rgba(116, 50, 122, 0.15);
+            --radius: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #F8F5FA 0%, #F0EBF5 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Header */
+        .hero-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            color: white;
+            padding: 40px 0 80px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-100px) translateX(-100px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            color: var(--secondary);
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .logo-text h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .hero-main {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .hero-text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .watch-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+
+        .watch {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2A1A3D 0%, #3A2A4D 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border: 15px solid var(--primary);
+        }
+
+        .watch-screen {
+            width: 80%;
+            height: 80%;
+            background: #111;
+            border-radius: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .watch-time {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .watch-status {
+            font-size: 1rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+
+        .watch-button {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 20px;
+            border: none;
+        }
+
+        .watch-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 107, 157, 0.4);
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            margin-bottom: 30px;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            flex: 1;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--dark);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray-600);
+            font-size: 1.1rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 5px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--gray-800);
+            font-size: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            background: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(193, 54, 140, 0.1);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2374327A' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+            padding-right: 50px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(193, 54, 140, 0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--dark), #3A2A4D);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #C0392B);
+            color: white;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #27AE60);
+            color: white;
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* Emergency Panel */
+        .emergency-panel {
+            position: sticky;
+            top: 30px;
+        }
+
+        .emergency-card {
+            background: linear-gradient(135deg, var(--dark) 0%, #3A2A4D 100%);
+            color: white;
+            padding: 40px 30px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 30px;
+        }
+
+        .emergency-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .emergency-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .emergency-description {
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .emergency-button {
+            background: linear-gradient(135deg, var(--accent), #FF4D87);
+            color: white;
+            font-size: 1.2rem;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .emergency-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .emergency-button .icon {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Status Messages */
+        .status-message {
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-success {
+            background: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid var(--success);
+            color: var(--success);
+        }
+
+        .status-error {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .status-info {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--info);
+            color: var(--info);
+        }
+
+        /* Contact List */
+        .contact-list {
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background: var(--gray-100);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            background: white;
+            border-color: var(--gray-300);
+            transform: translateX(5px);
+        }
+
+        .contact-info h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .contact-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .contact-type {
+            background: rgba(116, 50, 122, 0.1);
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* ODS Section */
+        .ods-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 80px 0;
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .ods-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ods-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
+        .ods-number {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 30px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .footer-text h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .footer-text p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .footer-links h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .security-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .security-badge i {
+            font-size: 2rem;
+            color: var(--success);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .emergency-panel {
+                position: static;
+            }
+            
+            .hero-main {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .watch-container {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .watch-container {
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .stat-item {
+                width: 100%;
+            }
+            
+            .btn {
+                padding: 14px 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Bem6</h1>
+                        <p>Relógio Inteligente de Segurança para Mulheres</p>
+                    </div>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="file:///C:/Users/Operador/Downloads/index%20(1).html#dashboard" class="nav-link active">Painel</a>
+                    <a href="file:///C:/Users/Operador/Downloads/index%20(1).html#features" class="nav-link">Recursos</a>
+                    <a href="file:///C:/Users/Operador/Downloads/api.html" class="nav-link">API</a>
+                    <a href="file:///C:/Users/Operador/Downloads/index%20(1).html#about" class="nav-link">Sobre</a>
+                </nav>
+            </div>
+            
+            <div class="hero-main">
+                <div class="hero-text">
+                    <h2>Segurança que você pode vestir</h2>
+                    <p>O Bem6 é um relógio inteligente desenvolvido especificamente para proteger mulheres em situações de risco. Com tecnologia de alerta automático, monitoramento em tempo real e resposta rápida a emergências.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="stat-alerts">4</span>
+                            <span class="stat-label">Alertas Enviados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="stat-contacts">1</span>
+                            <span class="stat-label">Contatos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="stat-active">24/7</span>
+                            <span class="stat-label">Monitoramento</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="watch-container">
+                        <div class="watch">
+                            <div class="watch-screen">
+                                <div class="watch-time" id="watch-time">11:36</div>
+                                <div class="watch-status">
+                                    <i class="fas fa-check-circle"></i> Sistema Ativo
+                                </div>
+                                <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Bateria: 78%</p>
+                                <button class="watch-button" id="watch-emergency">
+                                    <i class="fas fa-bell"></i>
+                                </button>
+                                <p style="font-size: 0.8rem; margin-top: 10px;">Pressione para emergência</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="main-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recursos do Bem6</h2>
+                <p>Conheça as funcionalidades que tornam o Bem6 a solução ideal para sua segurança pessoal</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Alerta de Emergência</h3>
+                    <p>Botão de pânico discreto que envia alertas instantâneos para contatos de emergência e autoridades com sua localização em tempo real.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Monitoramento de Saúde</h3>
+                    <p>Sensores que monitoram frequência cardíaca, níveis de estresse e detectam quedas, acionando automaticamente pedidos de ajuda.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Rastreamento GPS</h3>
+                    <p>Localização precisa 24/7 com histórico de rotas. Compartilhamento de localização com contatos de confiança quando necessário.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>Bateria de Longa Duração</h3>
+                    <p>Até 7 dias de autonomia com uso normal. Modo de emergência estende a bateria para 48 horas de monitoramento contínuo.</p>
+                </div>
+
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Segurança de Dados</h3>
+                    <p>Criptografia de ponta a ponta em todas as comunicações. Seus dados pessoais e localização são protegidos com padrões militares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="main-content" style="background: var(--light); padding: 80px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Painel de Controle</h2>
+                <p>Gerencie suas configurações de segurança e monitoramento</p>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="left-column">
+                    <div id="status-message" class="status-message status-success hidden">Sistema Bem6 inicializado com sucesso! Adicione contatos de emergência para começar.</div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h2 class="card-title">Contatos de Emergência</h2>
+                        </div>
+                        
+                        <p style="color: var(--gray-600); margin-bottom: 25px;">
+                            Adicione pessoas de confiança que receberão alertas em caso de emergência. Recomendamos incluir familiares, amigos e autoridades.
+                        </p>
+                        
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label class="form-label" for="contact-name">Nome do Contato</label>
+                                <input type="text" id="contact-name" class="form-control" placeholder="Ex: Maria Silva (Mãe)" required="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="contact-phone">Telefone</label>
+                                <input type="tel" id="contact-phone" class="form-control" placeholder="(75) 99999-9999" required="">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="contact-email">E-mail (Opcional)</label>
+                                <input type="email" id="contact-email" class="form-control" placeholder="contato@exemplo.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="contact-type">Tipo de Contato</label>
+                                <select id="contact-type" class="form-control form-select">
+                                    <option value="Familiar">Familiar</option>
+                                    <option value="Amigo">Amigo(a)</option>
+                                    <option value="Vizinho">Vizinho(a)</option>
+                                    <option value="Policia">Polícia (190)</option>
+                                    <option value="Samu">SAMU (192)</option>
+                                    <option value="Bombeiros">Bombeiros (193)</option>
+                                    <option value="Hospital">Hospital Próximo</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="contact-priority">Prioridade</label>
+                                <select id="contact-priority" class="form-control form-select">
+                                    <option value="alta">Alta (Primeiro a ser contactado)</option>
+                                    <option value="media">Média</option>
+                                    <option value="baixa">Baixa</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-user-plus"></i> Adicionar Contato
+                            </button>
+                        </form>
+
+                        <div class="contact-list" id="contacts-list"><div class="contact-item">
+                        <div class="contact-info">
+                            <h4>nauanny Oliveira damasceno</h4>
+                            <div class="contact-meta">
+                                <span><i class="fas fa-phone"></i> 75988686487</span>
+                                <span class="contact-type">Amigo</span>
+                                <span style="color: var(--danger)">
+                                    <i class="fas fa-flag"></i> alta
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger" onclick="deleteContact(2)" style="padding: 8px 15px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <h2 class="card-title">Configurações do Relógio</h2>
+                        </div>
+                        
+                        <form id="settings-form">
+                            <div class="form-group">
+                                <label class="form-label" for="alert-sensitivity">Sensibilidade do Alerta</label>
+                                <select id="alert-sensitivity" class="form-control form-select">
+                                    <option value="low">Baixa (Apenas botão manual)</option>
+                                    <option value="medium" selected="">Média (Detecta quedas e movimentos bruscos)</option>
+                                    <option value="high">Alta (Monitoramento constante de sinais vitais)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="gps-update">Frequência do GPS</label>
+                                <select id="gps-update" class="form-control form-select">
+                                    <option value="5min">5 minutos (Economia de bateria)</option>
+                                    <option value="2min" selected="">2 minutos (Equilibrado)</option>
+                                    <option value="30sec">30 segundos (Máximo monitoramento)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="battery-saver">Modo Economia</label>
+                                <select id="battery-saver" class="form-control form-select">
+                                    <option value="off">Desligado</option>
+                                    <option value="normal" selected="">Normal</option>
+                                    <option value="max">Máximo (Até 10 dias de bateria)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <input type="checkbox" id="auto-alert" checked=""> Alerta automático em caso de queda
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <input type="checkbox" id="share-location" checked=""> Compartilhar localização com contatos de emergência
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <input type="checkbox" id="vibration-alert" checked=""> Alertas por vibração
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-save"></i> Salvar Configurações
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="emergency-panel">
+                    <div class="emergency-card">
+                        <div class="emergency-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h2 class="emergency-title">Modo Emergência</h2>
+                        <p class="emergency-description">
+                            Em caso de perigo, clique no botão abaixo para enviar alertas simultaneamente para todos os seus contatos de emergência com sua localização em tempo real.
+                        </p>
+                        
+                        <div class="emergency-channels" style="margin-bottom: 30px;">
+                            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                                <span style="background: rgba(255,255,255,0.2); color: white; padding: 8px 15px; border-radius: 20px;">
+                                    <i class="fas fa-sms"></i> SMS
+                                </span>
+                                <span style="background: rgba(255,255,255,0.2); color: white; padding: 8px 15px; border-radius: 20px;">
+                                    <i class="fas fa-phone"></i> Chamada
+                                </span>
+                                <span style="background: rgba(255,255,255,0.2); color: white; padding: 8px 15px; border-radius: 20px;">
+                                    <i class="fas fa-map-marker-alt"></i> Localização
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <button class="emergency-button" id="emergency-button">
+                            <span class="icon"><i class="fas fa-bell"></i></span>
+                            <span>ATIVAR ALERTA DE EMERGÊNCIA</span>
+                        </button>
+                        
+                        <div style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                            <p><i class="fas fa-shield-alt"></i> Sua localização será incluída automaticamente</p>
+                            <p><i class="fas fa-clock"></i> Alertas serão enviados a cada 5 minutos até desativar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h2 class="card-title">Status do Sistema</h2>
+                        </div>
+                        
+                        <div style="margin-top: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--gray-200);">
+                                <span>Contatos de Emergência</span>
+                                <span id="quick-contacts" style="font-weight: 600;">1</span>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--gray-200);">
+                                <span>Bateria do Relógio</span>
+                                <span id="quick-battery" style="font-weight: 600;">78%</span>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--gray-200);">
+                                <span>Última Sincronização</span>
+                                <span id="quick-last-sync" style="font-weight: 600;">Há 1h</span>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Status do Sistema</span>
+                                <span style="color: var(--success); font-weight: 600;">
+                                    <i class="fas fa-circle"></i> Operacional
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ods-section">
+        <div class="container">
+            <div class="ods-content">
+                <div class="ods-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="ods-number">3</div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">ODS 3 - Saúde e Bem-Estar</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; opacity: 0.95; max-width: 700px; margin: 0 auto;">
+                    O Bem6 se alinha diretamente ao Objetivo de Desenvolvimento Sustentável 3 da ONU, 
+                    priorizando a integridade física e emocional das mulheres. Nosso projeto promove 
+                    segurança, autonomia e resposta rápida em situações de risco, contribuindo para 
+                    uma vida saudável e bem-estar para todas, em todas as idades.
+                </p>
+                <div style="margin-top: 40px;">
+                    <a href="file:///C:/Users/Operador/Downloads/index%20(1).html#about" class="btn btn-secondary" style="font-size: 1.1rem; padding: 18px 40px;">
+                        <i class="fas fa-info-circle"></i> Saiba mais sobre nosso impacto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="main-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nosso Propósito</h2>
+                <p>Entenda a motivação por trás do projeto Bem6</p>
+            </div>
+            
+            <div class="card" style="max-width: 900px; margin: 0 auto;">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h2 class="card-title">Missão e Impacto Social</h2>
+                </div>
+                
+                <div style="line-height: 1.8; color: var(--gray-800);">
+                    <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                        A construção do relógio <strong>Bem6</strong> surge como resposta a um problema social urgente: 
+                        a alta violência e vulnerabilidade que muitas mulheres enfrentam em espaços urbanos e sociais.
+                    </p>
+                    
+                    <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                        Nossa motivação está no desejo de desenvolver uma solução tecnológica prática e acessível, 
+                        capaz de oferecer mais <strong>segurança, autonomia e resposta rápida</strong> em situações de risco para mulheres.
+                    </p>
+                    
+                    <div style="background: var(--gray-100); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">
+                            <i class="fas fa-star"></i> Por que o Bem6 é importante?
+                        </h3>
+                        <ul style="list-style: none; padding-left: 20px;">
+                            <li style="margin-bottom: 10px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                                Proporciona uma ferramenta inteligente de monitoramento e alerta automático
+                            </li>
+                            <li style="margin-bottom: 10px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                                Amplia a capacidade de reação das mulheres em emergências
+                            </li>
+                            <li style="margin-bottom: 10px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                                Atende a uma necessidade real de segurança pessoal feminina
+                            </li>
+                            <li style="margin-bottom: 10px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                                Contribui para a redução de riscos relacionados à violência e ao feminicídio
+                            </li>
+                            <li style="padding-left: 30px; position: relative;">
+                                <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                                Oferece suporte em situações de saúde e emergências médicas
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                        No que diz respeito à <strong>sustentabilidade</strong>, o relógio Bem6 se destaca por empregar 
+                        práticas de eficiência energética e uso consciente de recursos durante seu desenvolvimento.
+                    </p>
+                    
+                    <p style="font-size: 1.1rem;">
+                        Através da tecnologia assistiva, promovemos maior segurança social e qualidade de vida, 
+                        criando um impacto positivo real na sociedade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="footer-text">
+                            <h3>Bem6</h3>
+                            <p>Relógio Inteligente de Segurança para Mulheres</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-badge" style="margin-top: 20px;">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <div style="font-weight: 600;">Dados Protegidos</div>
+                            <div style="font-size: 0.9rem; opacity: 0.9;">Criptografia de ponta a ponta</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#dashboard">Painel de Controle</a></li>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#features">Recursos</a></li>
+                        <li><a href="file:///C:/Users/Operador/Downloads/api.html">API para Desenvolvedores</a></li>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#about">Sobre o Projeto</a></li>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#">Documentação</a></li>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#">FAQ</a></li>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#">Suporte Técnico</a></li>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#">Política de Privacidade</a></li>
+                        <li><a href="file:///C:/Users/Operador/Downloads/index%20(1).html#">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> contato@bem6.com.br</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> (75) 99999-9999</li>
+                    </ul>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="file:///C:/Users/Operador/Downloads/index%20(1).html#" style="color: white; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="file:///C:/Users/Operador/Downloads/index%20(1).html#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="file:///C:/Users/Operador/Downloads/index%20(1).html#" style="color: white; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="file:///C:/Users/Operador/Downloads/index%20(1).html#" style="color: white; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Bem6 - Todos os direitos reservados. Projeto desenvolvido com ❤️ para a segurança das mulheres.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let db;
+        const DB_NAME = "Bem6DB";
+        const DB_VERSION = 1;
+
+        async function initDatabase() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                
+                request.onerror = (event) => {
+                    console.error("Database error:", event.target.error);
+                    reject(event.target.error);
+                };
+                
+                request.onsuccess = (event) => {
+                    db = event.target.result;
+                    console.log("Database initialized successfully");
+                    resolve(db);
+                };
+                
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    
+                    if (!db.objectStoreNames.contains('contacts')) {
+                        const contactsStore = db.createObjectStore('contacts', { keyPath: 'id', autoIncrement: true });
+                        contactsStore.createIndex('name', 'name', { unique: false });
+                        contactsStore.createIndex('type', 'type', { unique: false });
+                        contactsStore.createIndex('priority', 'priority', { unique: false });
+                    }
+                    
+                    if (!db.objectStoreNames.contains('alerts')) {
+                        const alertsStore = db.createObjectStore('alerts', { keyPath: 'id', autoIncrement: true });
+                        alertsStore.createIndex('date', 'date', { unique: false });
+                        alertsStore.createIndex('type', 'type', { unique: false });
+                    }
+                    
+                    if (!db.objectStoreNames.contains('settings')) {
+                        const settingsStore = db.createObjectStore('settings', { keyPath: 'key' });
+                    }
+                    
+                    console.log("Database structure created");
+                };
+            });
+        }
+
+        function addData(storeName, data) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                const request = store.add(data);
+                
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function getAllData(storeName) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([storeName], 'readonly');
+                const store = transaction.objectStore(storeName);
+                const request = store.getAll();
+                
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function updateData(storeName, id, data) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                const request = store.put({ ...data, id });
+                
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function deleteData(storeName, id) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                const request = store.delete(id);
+                
+                request.onsuccess = () => resolve(true);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function saveSetting(key, value) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['settings'], 'readwrite');
+                const store = transaction.objectStore('settings');
+                const request = store.put({ key, value });
+                
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function getSetting(key) {
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['settings'], 'readonly');
+                const store = transaction.objectStore('settings');
+                const request = store.get(key);
+                
+                request.onsuccess = () => resolve(request.result ? request.result.value : null);
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        function showStatus(message, type = 'info') {
+            const statusEl = document.getElementById('status-message');
+            statusEl.textContent = message;
+            statusEl.className = `status-message status-${type}`;
+            statusEl.classList.remove('hidden');
+            
+            setTimeout(() => {
+                statusEl.classList.add('hidden');
+            }, 5000);
+        }
+
+        function updateWatchTime() {
+            const now = new Date();
+            const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
+                             now.getMinutes().toString().padStart(2, '0');
+            document.getElementById('watch-time').textContent = timeString;
+        }
+
+        async function updateStats() {
+            try {
+                const contacts = await getAllData('contacts');
+                const alerts = await getAllData('alerts');
+                
+                document.getElementById('stat-contacts').textContent = contacts.length;
+                document.getElementById('stat-alerts').textContent = alerts.length;
+                
+                document.getElementById('quick-contacts').textContent = contacts.length;
+                
+                const lastSync = await getSetting('lastSync') || new Date().toISOString();
+                const syncDate = new Date(lastSync);
+                const now = new Date();
+                const diffMinutes = Math.floor((now - syncDate) / (1000 * 60));
+                
+                let syncText;
+                if (diffMinutes < 1) {
+                    syncText = "Agora";
+                } else if (diffMinutes < 60) {
+                    syncText = `Há ${diffMinutes} min`;
+                } else {
+                    syncText = `Há ${Math.floor(diffMinutes / 60)}h`;
+                }
+                
+                document.getElementById('quick-last-sync').textContent = syncText;
+                
+            } catch (error) {
+                console.error("Error updating stats:", error);
+            }
+        }
+
+        async function loadContacts() {
+            try {
+                const contacts = await getAllData('contacts');
+                const contactsList = document.getElementById('contacts-list');
+                
+                if (contacts.length === 0) {
+                    contactsList.innerHTML = `
+                        <div style="text-align: center; padding: 30px; color: var(--gray-600);">
+                            <i class="fas fa-users" style="font-size: 2rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                            <p>Nenhum contato cadastrado ainda</p>
+                            <p style="font-size: 0.9rem; margin-top: 10px;">Adicione contatos de emergência para receber alertas</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                contactsList.innerHTML = '';
+                contacts.sort((a, b) => {
+                    const priorityOrder = { alta: 0, media: 1, baixa: 2 };
+                    return priorityOrder[a.priority] - priorityOrder[b.priority];
+                });
+                
+                contacts.forEach(contact => {
+                    const contactEl = document.createElement('div');
+                    contactEl.className = 'contact-item';
+                    contactEl.innerHTML = `
+                        <div class="contact-info">
+                            <h4>${contact.name}</h4>
+                            <div class="contact-meta">
+                                <span><i class="fas fa-phone"></i> ${contact.phone}</span>
+                                <span class="contact-type">${contact.type}</span>
+                                <span style="color: ${contact.priority === 'alta' ? 'var(--danger)' : contact.priority === 'media' ? 'var(--warning)' : 'var(--info)'}">
+                                    <i class="fas fa-flag"></i> ${contact.priority}
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger" onclick="deleteContact(${contact.id})" style="padding: 8px 15px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    contactsList.appendChild(contactEl);
+                });
+                
+            } catch (error) {
+                console.error("Error loading contacts:", error);
+                showStatus("Erro ao carregar contatos", "error");
+            }
+        }
+
+
+        async function deleteContact(id) {
+            if (confirm("Tem certeza que deseja excluir este contato de emergência?")) {
+                try {
+                    await deleteData('contacts', id);
+                    showStatus("Contato excluído com sucesso", "success");
+                    loadContacts();
+                    updateStats();
+                } catch (error) {
+                    showStatus("Erro ao excluir contato", "error");
+                }
+            }
+        }
+
+
+        async function loadSettings() {
+            try {
+                const sensitivity = await getSetting('alert-sensitivity') || 'medium';
+                const gpsUpdate = await getSetting('gps-update') || '2min';
+                const batterySaver = await getSetting('battery-saver') || 'normal';
+                const autoAlert = await getSetting('auto-alert') !== 'false';
+                const shareLocation = await getSetting('share-location') !== 'false';
+                const vibrationAlert = await getSetting('vibration-alert') !== 'false';
+                
+                document.getElementById('alert-sensitivity').value = sensitivity;
+                document.getElementById('gps-update').value = gpsUpdate;
+                document.getElementById('battery-saver').value = batterySaver;
+                document.getElementById('auto-alert').checked = autoAlert;
+                document.getElementById('share-location').checked = shareLocation;
+                document.getElementById('vibration-alert').checked = vibrationAlert;
+                
+            } catch (error) {
+                console.error("Error loading settings:", error);
+            }
+        }
+
+        async function sendEmergencyAlert() {
+            if (!confirm("⚠️ ATENÇÃO: Isso enviará alertas de emergência para todos os seus contatos de emergência com sua localização atual. Tem certeza?")) {
+                return;
+            }
+            
+            showStatus("Enviando alertas de emergência...", "info");
+            
+            try {
+                const contacts = await getAllData('contacts');
+                
+                if (contacts.length === 0) {
+                    showStatus("Adicione pelo menos um contato de emergência primeiro", "error");
+                    return;
+                }
+                
+                let location = "Localização não disponível";
+                try {
+                    const position = await new Promise((resolve, reject) => {
+                        navigator.geolocation.getCurrentPosition(resolve, reject);
+                    });
+                    
+                    location = `https://maps.google.com/?q=${position.coords.latitude},${position.coords.longitude}`;
+                } catch (error) {
+                    console.warn("Could not get location:", error);
+                }
+                
+                const emergencyMessage = `🚨 ALERTA DE EMERGÊNCIA BEM6 🚨
+
+Estou em situação de perigo e preciso de ajuda imediata.
+
+📍 Localização: ${location}
+🕐 Hora do alerta: ${new Date().toLocaleString('pt-BR')}
+
+Por favor, entre em contato com as autoridades e tente me localizar.
+
+Este é um alerta automático do sistema Bem6.`;
+
+                await addData('alerts', {
+                    type: 'emergency',
+                    message: emergencyMessage,
+                    date: new Date().toISOString(),
+                    contactsCount: contacts.length,
+                    location: location
+                });
+                
+                let sentCount = 0;
+                
+                for (const contact of contacts) {
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                    sentCount++;
+                    
+                    showStatus(`Enviando alertas... ${sentCount}/${contacts.length}`, "info");
+                }
+                
+                showStatus(`✅ Alertas de emergência enviados para ${sentCount} contatos`, "success");
+                
+                updateStats();
+                await saveSetting('lastSync', new Date().toISOString());
+                
+                const watchBtn = document.getElementById('watch-emergency');
+                watchBtn.innerHTML = '<i class="fas fa-check"></i>';
+                watchBtn.style.background = 'linear-gradient(135deg, var(--success), #27AE60)';
+                
+                setTimeout(() => {
+                    watchBtn.innerHTML = '<i class="fas fa-bell"></i>';
+                    watchBtn.style.background = 'linear-gradient(135deg, var(--accent), #FF4D87)';
+                }, 3000);
+                
+            } catch (error) {
+                showStatus(`Erro ao enviar alertas: ${error.message}`, "error");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                await initDatabase();
+                
+                await loadContacts();
+                await loadSettings();
+                updateStats();
+                
+                updateWatchTime();
+                setInterval(updateWatchTime, 60000);
+                
+                document.getElementById('contact-form').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const contactData = {
+                        name: document.getElementById('contact-name').value,
+                        phone: document.getElementById('contact-phone').value,
+                        email: document.getElementById('contact-email').value || '',
+                        type: document.getElementById('contact-type').value,
+                        priority: document.getElementById('contact-priority').value,
+                        date: new Date().toISOString()
+                    };
+                    
+                    try {
+                        await addData('contacts', contactData);
+                        showStatus("Contato adicionado com sucesso", "success");
+                        e.target.reset();
+                        loadContacts();
+                        updateStats();
+                    } catch (error) {
+                        showStatus("Erro ao adicionar contato", "error");
+                    }
+                });
+                
+                document.getElementById('settings-form').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    try {
+                        await Promise.all([
+                            saveSetting('alert-sensitivity', document.getElementById('alert-sensitivity').value),
+                            saveSetting('gps-update', document.getElementById('gps-update').value),
+                            saveSetting('battery-saver', document.getElementById('battery-saver').value),
+                            saveSetting('auto-alert', document.getElementById('auto-alert').checked),
+                            saveSetting('share-location', document.getElementById('share-location').checked),
+                            saveSetting('vibration-alert', document.getElementById('vibration-alert').checked)
+                        ]);
+                        
+                        showStatus("Configurações salvas com sucesso", "success");
+                        await saveSetting('lastSync', new Date().toISOString());
+                        updateStats();
+                        
+                    } catch (error) {
+                        showStatus("Erro ao salvar configurações", "error");
+                    }
+                });
+                
+                document.getElementById('emergency-button').addEventListener('click', sendEmergencyAlert);
+                document.getElementById('watch-emergency').addEventListener('click', sendEmergencyAlert);
+                
+                document.getElementById('quick-last-sync').textContent = "Agora";
+                
+                setTimeout(() => {
+                    showStatus("Sistema Bem6 inicializado com sucesso! Adicione contatos de emergência para começar.", "success");
+                }, 1000);
+                
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        if (this.getAttribute('href') === '#') return;
+                        
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            
+                            document.querySelectorAll('.nav-link').forEach(link => {
+                                link.classList.remove('active');
+                            });
+                            this.classList.add('active');
+                        }
+                    });
+                });
+                
+            } catch (error) {
+                console.error("Initialization error:", error);
+                showStatus("Erro ao inicializar o sistema. Recarregue a página.", "error");
+            }
+        });
+    </script>
+
+</body></html>
