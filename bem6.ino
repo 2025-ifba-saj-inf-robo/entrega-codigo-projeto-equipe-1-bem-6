@@ -1,122 +1,180 @@
-#include "arduino_secrets.h"
-
+#include <WiFi.h>
+#include <HTTPClient.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-#include "BluetoothSerial.h"
 
-// --- CONFIGURAÃÃO DO BOTÃO ---
-// Defina o pino GPIO onde o botÃ£o estÃ¡ conectado
-// IMPORTANTE: O botÃ£o deve ser conectado entre este pino e o GND
-#define PINO_BOTAO 4 
-int estadoAnteriorBotao = HIGH; // VariÃ¡vel para detectar o clique (debounce)
+#include "MAX30100_PulseOximeter.h"
 
-// === CONFIGURAÃÃO DO LCD ===
-LiquidCrystal_I2C lcd(0x27, 16, 2);  // EndereÃ§o do seu display
+// ----- LCD -----
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// === CONFIGURAÃÃO DO BLUETOOTH ===
-BluetoothSerial SerialBT;
-String device_name = "ESP32-LCD";
-String incomingMessage = "";
+// ----- MAX30100 -----
+PulseOximeter pox;
+uint32_t lastRead = 0;
+#define REPORT_PERIOD 1000
 
-void setup() {
-  // Serial para debug e envio
-  Serial.begin(115200);
+// ----- Botão -----
+const int BTN = 15;
+unsigned long lastPress = 0;
+int clickCount = 0;
+bool measuring = false;
+bool alertMode = false;
 
-  // Inicializa Bluetooth
-  SerialBT.begin(device_name);
-  Serial.println("Bluetooth iniciado! Conecte-se e envie mensagens.");
-  Serial.println("Digite no Monitor Serial para enviar dados ao celular.");
+// ----- WiFi -----
+String ssid = "REDE";
+String pass = "SENHA";
 
-  // Inicializa LCD
-  lcd.init();      
-  lcd.backlight(); 
-  lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("Aguardando...");
+// ----- Servidor -----
+String emergencyContact = "+5599XXXXXXXX";
+String serverURL = "http://SEUSITE.com/api/emergencia";
 
-  // Configura o pino do botÃ£o como entrada com resistor pull-up interno
-  pinMode(PINO_BOTAO, INPUT_PULLUP);
-  Serial.println("Pressione o botao no pino " + String(PINO_BOTAO) + " para enviar localizacao.");
+// =========================
+// Funções Auxiliares
+// =========================
+
+void sendMessage(String msg) {
+    HTTPClient http;
+    http.begin(serverURL);
+    http.addHeader("Content-Type", "application/json");
+
+    String payload = "{\"contato\": \"" + emergencyContact + "\", \"mensagem\": \"" + msg + "\"}";
+    http.POST(payload);
+    http.end();
 }
 
-void loop() {
-  // --- PARTE 1: Verifica se o botÃ£o foi pressionado ---
-  // (Esta Ã© a parte nova)
-  verificarBotao();
+void showClock() {
+    struct tm timeinfo;
+    if (!getLocalTime(&timeinfo)) return;
 
-  // --- PARTE 2: Recebe do Celular (Bluetooth) e mostra no LCD ---
-  if (SerialBT.available()) {
-    char c = SerialBT.read();
+    char buffer[20];
+    strftime(buffer, sizeof(buffer), "%H:%M:%S", &timeinfo);
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("Hora Brasilia:");
+    lcd.setCursor(0,1);
+    lcd.print(buffer);
+}
 
-    if (c == '\n' || c == '\r') {
-      if (incomingMessage.length() > 0) {
-        mostrarNoLCD(incomingMessage);
-        Serial.print("Recebido do Celular: ");
-        Serial.println(incomingMessage);
-        incomingMessage = "";
-      }
+// callback do sensor
+void onBeatDetected() {
+    Serial.println("Pulso detectado!");
+}
+
+void toggleMeasurement() {
+    measuring = !measuring;
+    lcd.clear();
+    if (measuring) {
+        lcd.print("Medindo...");
     } else {
-      incomingMessage += c;
+        lcd.print("Medicao OFF");
     }
-  }
-
-  // --- PARTE 3: Recebe do Monitor Serial e envia para o Celular (Bluetooth) ---
-  if (Serial.available()) {
-    while (Serial.available()) {
-      char c = Serial.read();
-      SerialBT.write(c);
-    }
-  }
 }
 
-/**
- * @brief Verifica se o botÃ£o foi pressionado e envia a mensagem.
- * Utiliza detecÃ§Ã£o de borda de descida (HIGH para LOW) para enviar sÃ³ uma vez.
- */
-void verificarBotao() {
-  // LÃª o estado atual do botÃ£o
-  int estadoAtualBotao = digitalRead(PINO_BOTAO);
+// =========================
+// setup()
+// =========================
+void setup() {
+    Serial.begin(115200);
 
-  // Compara com o estado anterior
-  // Se antes estava ALTO (HIGH) e agora estÃ¡ BAIXO (LOW), significa que o botÃ£o
-  // acabou de ser pressionado.
-  if (estadoAnteriorBotao == HIGH && estadoAtualBotao == LOW) {
-    Serial.println("Botao pressionado!");
-    
-    String mensagem = "enviando localizaÃ§Ã£o atual";
-    mostrarNoLCD(mensagem);
+    Wire.begin();
+    lcd.init();
+    lcd.backlight();
 
-    // Envia a mensagem para o Monitor Serial
-    Serial.println(mensagem);
-    
-    // Envia a mensagem para o Bluetooth Serial do celular
-    // Usamos println() para que o app no celular receba um "Enter" no final
-    SerialBT.println(mensagem);
+    pinMode(BTN, INPUT_PULLUP);
 
-    // Pequeno atraso (debounce) para evitar leituras mÃºltiplas
-    delay(50); 
-  }
+    // --- Conexão WiFi ---
+    lcd.print("Conectando...");
+    WiFi.begin(ssid, pass);
+    while (WiFi.status() != WL_CONNECTED) delay(200);
+    lcd.clear();
 
-  // Atualiza o estado anterior do botÃ£o para a prÃ³xima verificaÃ§Ã£o no loop
-  estadoAnteriorBotao = estadoAtualBotao;
+    // Relógio NTP
+    configTime(-3 * 3600, 0, "pool.ntp.org");
+
+    // --- Inicializar MAX30100 ---
+    lcd.print("Sensor MAX30100...");
+    if (!pox.begin()) {
+        lcd.clear();
+        lcd.print("ERRO SENSOR!");
+        while(1);
+    }
+    pox.setOnBeatDetectedCallback(onBeatDetected);
+
+    lcd.clear();
 }
 
+// =========================
+// loop()
+// =========================
+void loop() {
 
-// FunÃ§Ã£o para mostrar a mensagem no LCD
-void mostrarNoLCD(String msg) {
-  lcd.clear();
+    // ===================================
+    // TRATAMENTO DO BOTÃO
+    // ===================================
+    if (!digitalRead(BTN)) {
+        unsigned long now = millis();
 
-  // Cabe em uma linha
-  if (msg.length() <= 16) {
-    lcd.setCursor(0, 0);
-    lcd.print(msg);
-  } 
-  // Divide em duas linhas (mÃ¡x 32 caracteres)
-  else {
-    lcd.setCursor(0, 0);
-    lcd.print(msg.substring(0, 16));
-    lcd.setCursor(0, 1);
-    int fim = min((int)msg.length(), 32);
-    lcd.print(msg.substring(16, fim));
-  }
+        if (now - lastPress > 40) { // Debounce
+            clickCount++;
+            lastPress = now;
+        }
+
+        // Pressão longa → liga/desliga medição
+        if (now - lastPress > 800 && !measuring) {
+            toggleMeasurement();
+            while (!digitalRead(BTN)); // aguarda soltar
+            return;
+        }
+    }
+
+    // Clique simples / duplo
+    if (clickCount > 0 && millis() - lastPress > 300) {
+
+        // Clique simples → enviar alerta
+        if (clickCount == 1) {
+            alertMode = true;
+            lcd.clear();
+            lcd.print("ALERTA enviado");
+            sendMessage("ALERTA! Preciso de ajuda. Minha localizacao: ...");
+        }
+
+        // Duplo clique → cancelar alerta
+        if (clickCount == 2) {
+            alertMode = false;
+            lcd.clear();
+            lcd.print("Alerta cancelado");
+            sendMessage("Desconsidere. Acionamento enganoso.");
+        }
+
+        clickCount = 0;
+    }
+
+    // ===================================
+    // MEDIÇÃO MAX30100
+    // ===================================
+    pox.update(); // precisa rodar sempre
+
+    if (measuring) {
+        if (millis() - lastRead > REPORT_PERIOD) {
+
+            float bpm = pox.getHeartRate();
+            float spo2 = pox.getSpO2();
+
+            lcd.clear();
+            lcd.setCursor(0,0);
+            lcd.print("BPM: ");
+            lcd.print(bpm);
+
+            lcd.setCursor(0,1);
+            lcd.print("SpO2: ");
+            lcd.print(spo2);
+            lcd.print("%");
+
+            lastRead = millis();
+        }
+    } 
+    else {
+        showClock();
+        delay(500);
+    }
 }
